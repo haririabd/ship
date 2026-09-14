@@ -5,6 +5,10 @@ on:
     branches: [main]
   workflow_dispatch: {}
 
+permissions:
+  id-token: write   # required to request the OIDC token for AssumeRoleWithWebIdentity
+  contents: read
+
 env:
   AWS_REGION: ap-southeast-1
   ECR_REPOSITORY: devops-bootcamp/haririabd
@@ -18,8 +22,7 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          role-to-assume: arn:aws:iam::739951718815:role/github-actions-ecr-push
           aws-region: ${{ env.AWS_REGION }}
 
       - name: Log in to Amazon ECR
