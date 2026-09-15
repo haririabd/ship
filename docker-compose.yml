@@ -1,0 +1,6 @@
+services:
+  ship:
+    image: 739951718815.dkr.ecr.ap-southeast-1.amazonaws.com/devops-bootcamp/final-project-haririabd:latest
+    ports:
+      - "8080:80"
+    restart: unless-stopped

@@ -11,7 +11,7 @@ permissions:
 
 env:
   AWS_REGION: ap-southeast-1
-  ECR_REPOSITORY: devops-bootcamp/haririabd
+  ECR_REPOSITORY: devops-bootcamp/final-project-haririabd
 
 jobs:
   build-and-push:
